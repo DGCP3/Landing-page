@@ -20,9 +20,6 @@ body {
   font-family: "Merriweather", serif;
   color: #fff;
 }
-html {
-  scroll-behavior: smooth;
-}
 
 /* Typeography General*/
 h1 {
@@ -206,17 +203,9 @@ section:nth-of-type(3n + 1) .landing__container::after {
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
-/* navbar link style */
-.navLink {
-  padding: 10px 20px;
-  text-decoration: none;
-  background-color: aquamarine;
-  text-transform: capitalize;
-}
 .active {
-  /* background: #fff; */
-  color: red;
-  /* display: none; */
+  background: #000;
+  color: #fff !important;
 }
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
