@@ -39,7 +39,7 @@ function createMenu() {
     //id is used by anchor to scroll to the section
     const id = section.getAttribute("id");
     const text = section.dataset.nav;
-    navbar.appendChild(createNavLink(`#${id}`, text));
+    navbar.appendChild(createNavLink(id, text));
   });
   // loop over sections and add observer to each section
   sections.forEach((section) => {
@@ -58,7 +58,7 @@ function scroll() {
       // get the section id thats linked to the anchor tag by data-section attribute
       const dataSection = anchor.dataset.section;
       // get the section
-      const section = document.querySelector(dataSection);
+      const section = document.getElementById(dataSection);
       // scroll to the section
       section.scrollIntoView({
         behavior: "smooth",
