@@ -7,3 +7,7 @@ This project is about building a multi-section landing page with a dynamically u
 - Dynamic navigation links
 - Scrolling to section on click
 - Active navigation link highlighting on section scroll
+
+## Dependencies
+
+none
