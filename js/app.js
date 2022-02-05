@@ -1,12 +1,11 @@
-function createNavLink(section, text) {
+function createNavLink(sectionId, text) {
   // create list item
   const list = document.createElement("li");
   // create anchor tag
   const link = document.createElement("a");
   // add class to anchor tag
   link.setAttribute("class", "menu__link");
-  //  add data-section with section id to anchor tag
-  link.setAttribute("data-section", section);
+  link.setAttribute("data-section", sectionId);
   // add text to anchor tag
   link.textContent = text;
   // append anchor tag to list item
@@ -19,7 +18,8 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
-      const link = document.querySelector(`a[data-section="#${id}"]`);
+      //  get the anchor tag with data-section attribute
+      const link = document.querySelector(`a[data-section="${id}"]`);
       // link.classList.toggle("active");👈 this only work if threshold is 1 so i used the ff code
       entry.isIntersecting
         ? link.classList.add("active")
