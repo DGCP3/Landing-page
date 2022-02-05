@@ -5,11 +5,13 @@ function createNavLink(section, text) {
   const link = document.createElement("a");
   // add class to anchor tag
   link.setAttribute("class", "menu__link");
-  //  add data-section attribute to anchor tag to scroll to the section
+  //  add data-section with section id to anchor tag
   link.setAttribute("data-section", section);
-  // add text to anchor tag to be displayed in the nav
+  // add text to anchor tag
   link.textContent = text;
+  // append anchor tag to list item
   list.appendChild(link);
+  // return list item
   return list;
 }
 // create section observer to detect when section is in viewport
@@ -54,7 +56,7 @@ function scroll() {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
       // get the section id thats linked to the anchor tag by data-section attribute
-      const dataSection = anchor.getAttribute("data-section");
+      const dataSection = anchor.dataset.section;
       // get the section
       const section = document.querySelector(dataSection);
       // scroll to the section
