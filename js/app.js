@@ -29,12 +29,8 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.7 } // 70% of the section is in view before triggering the callback
 );
 /**
- *  this function create navigation links by getting the sections
- *  from the DOM and creating a nav link for each section by calling
- *  createNavLink function and appending it to the nav ul
- *  then add the section observer to each section
- *  @argument
- *  @returns {void}
+ *  get all sections from the DOM, creating a nav link for each section,
+ *  then add observer to each section
  */
 function createMenu() {
   const navbar = document.querySelector("#navbar__list");
