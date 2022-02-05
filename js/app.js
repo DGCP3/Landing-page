@@ -54,7 +54,7 @@ function scroll() {
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
       // get the section id thats linked to the anchor tag by data-section attribute
-      const dataSection = anchor.getAttribute("data-section");
+      const dataSection = anchor.dataset.section;
       // get the section
       const section = document.querySelector(dataSection);
       // scroll to the section
