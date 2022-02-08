@@ -13,24 +13,29 @@ function createNavLink(sectionId, text) {
   // return list item
   return list;
 }
+let delay;
 // create section observer to detect when section is in viewport
 const sectionObserver = new IntersectionObserver(
   (entries) => {
+    if (delay) clearTimeout(delay);
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
-      //  get the anchor tag with data-section attribute
       const link = document.querySelector(`a[data-section="${id}"]`);
-      // link.classList.toggle("active");👈 this only work if threshold is 1 so i used the ff code
-      entry.isIntersecting
-        ? link.classList.add("active")
-        : link.classList.remove("active");
+      if (entry.isIntersecting) {
+        // clear timeout if it exists or else it will trigger multiple times
+        delay = setTimeout(() => {
+          link.classList.add("active");
+        }, 400);
+      } else {
+        link.classList.remove("active");
+      }
     });
   },
   { threshold: 0.7 } // 70% of the section is in view before triggering the callback
 );
 /**
  *  get all sections from the DOM, creating a nav link for each section,
- *  then add observer to each section
+ *  then add observer to on each section
  */
 function createMenu() {
   const navbar = document.querySelector("#navbar__list");
