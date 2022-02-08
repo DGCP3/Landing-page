@@ -19,7 +19,6 @@ const sectionObserver = new IntersectionObserver(
   (entries) => {
     if (delay) clearTimeout(delay);
     entries.forEach((entry) => {
-      const id = entry.target.getAttribute("id");
       entry.target.classList.toggle("your-active-class", entry.isIntersecting);
     });
   },
