@@ -20,7 +20,6 @@ const sectionObserver = new IntersectionObserver(
     if (delay) clearTimeout(delay);
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
-      const link = document.querySelector(`a[data-section="${id}"]`);
       entry.target.classList.toggle("your-active-class", entry.isIntersecting);
     });
   },
