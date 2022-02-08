@@ -21,17 +21,10 @@ const sectionObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
       const link = document.querySelector(`a[data-section="${id}"]`);
-      if (entry.isIntersecting) {
-        // clear timeout if it exists or else it will trigger multiple times
-        delay = setTimeout(() => {
-          link.classList.add("active");
-        }, 400);
-      } else {
-        link.classList.remove("active");
-      }
+      entry.target.classList.toggle("your-active-class", entry.isIntersecting);
     });
   },
-  { threshold: 0.7 } // 70% of the section is in view before triggering the callback
+  { threshold: 0.7 }
 );
 /**
  *  get all sections from the DOM, creating a nav link for each section,
