@@ -87,7 +87,7 @@ section {
   color: #fff;
   transition: ease 0.3s all;
 }
-.navbar__menu .menu__link--active {
+.navbar__menu .active {
   background: #000000;
   color: #ffffff;
 }
