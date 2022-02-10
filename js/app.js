@@ -1,3 +1,4 @@
+let delay; //add slight delay to the nav bar active state to prevent flickering
 function createNavLink(sectionId, text) {
   // create list item
   const list = document.createElement("li");
@@ -13,25 +14,25 @@ function createNavLink(sectionId, text) {
   // return list item
   return list;
 }
-let delay; //add slight delay to the nav bar active state to prevent it from flickering
+
 // create section observer to detect when section is in viewport
 const sectionObserver = new IntersectionObserver(
   (entries) => {
-    if (delay) clearTimeout(delay);
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
       const link = document.querySelector(`a[data-section="${id}"]`);
       entry.target.classList.toggle("your-active-class", entry.isIntersecting);
       if (entry.isIntersecting) {
+        if (delay) clearTimeout(delay);
         delay = setTimeout(() => {
-          link.classList.add("nav-active");
+          link.classList.add("active");
         }, 400);
       } else {
-        link.classList.remove("nav-active");
+        link.classList.remove("active");
       }
     });
   },
-  { threshold: 0.7 }
+  { threshold: 0.6 } // 60 percent of the section is visible
 );
 /**
  *  get all sections from the DOM, creating a nav link for each section,
